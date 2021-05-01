@@ -1,13 +1,7 @@
+import React from "react";
 import Head from "next/head";
-import {isMobile} from 'react-device-detect';
 
-import Sidebar from "../components/Sidebar";
-import MobileScreen from '../components/MobileDevice';
-
-export default function Home() {
-  if (isMobile) {
-    return (<MobileScreen />)
-  }
+const chat = () => {
   return (
     <div>
       <Head>
@@ -19,11 +13,11 @@ export default function Home() {
         <meta name="full-screen" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <title>Whatsapp 2.0</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Page Not Found</title>
       </Head>
-
-      <Sidebar />
+      <div>Page Not Found</div>
     </div>
   );
-}
+};
+
+export default chat;
