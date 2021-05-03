@@ -1,9 +1,20 @@
 import React from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import firebase from "firebase";
 
 import Login from "../../components/Login";
 
 const login = () => {
+  const router = useRouter();
+  console.log(`
+  Hey Developer
+  Let me know if found any bug as this is still in development phase
+  Contact me - https://www.linkedin.com/in/soumeshbehera/
+`);
+  if (firebase?.auth()?.currentUser) {
+    router.replace("/");
+  }
   return (
     <div>
       <Head>

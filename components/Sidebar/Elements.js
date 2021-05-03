@@ -136,3 +136,30 @@ export const FooterContainer = styled('div')`
     margin-left: 30px;
   }
 `;
+
+export const InputContainer = styled('div')`
+  text-align: center;
+  padding : 30px 0;
+  > div {
+    width: 60%;
+  }
+`;
+
+export const ButtonContainer = styled('div')`
+  margin-top: 20px;
+  text-align: right;
+  > button:nth-of-type(2) {
+    margin-left: 14px;
+    background: #0194FF;
+    &:disabled {
+      background: gray;
+    }
+  }
+`;
+
+export const ErrorText = styled('p')`
+  margin: 4px 0 0;
+  color: red;
+  font-size: 16px;
+  font-weight: 500;
+`;

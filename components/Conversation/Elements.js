@@ -94,6 +94,7 @@ export const MessageElement = styled('p')`
   padding-bottom: 26px;
   position: relative;
   text-align: right;
+  word-break: break-word;
 `;
 
 export const Timestamp = styled('span')`
