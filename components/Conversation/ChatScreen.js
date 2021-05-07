@@ -11,6 +11,7 @@ import MicIcon from "@material-ui/icons/Mic";
 import CloseIcon from "@material-ui/icons/Close";
 import firebase from "firebase";
 import TimeAgo from "timeago-react";
+import emailjs from "emailjs-com";
 
 import {
   ChatScreenContainer,
@@ -92,6 +93,71 @@ const ChatScreen = ({ chat, messages }) => {
 
   const sendMessage = (event) => {
     event.preventDefault();
+
+    try {
+      const minuteDiffrence = Math.ceil(
+        (new Date().getTime() -
+          new Date(recipient?.lastSeen?.toDate()).getTime()) /
+          (1000 * 60)
+      );
+      if (recipient?.lastSeen?.toDate() && minuteDiffrence > 4) {
+        const params = {
+          from_name: user.displayName,
+          from_mail: user.email,
+          to_name: recipient?.userName || recipientEmail,
+          message: chatInput,
+          to_mail: recipientEmail,
+        };
+
+        // sending email
+        emailjs
+          .send(
+            "gmail",
+            "template_e522ydk",
+            params,
+            "user_TQwr7VIKtfTBbOESbFKxf"
+          )
+          .then(
+            (result) => {
+              // message sent
+              // console.log("result", result.text);
+            },
+            (error) => {
+              console.error("error", error.text);
+            }
+          );
+      } else if (!recipient?.lastSeen?.toDate()) {
+        const params = {
+          from_name: user.displayName,
+          from_mail: user.email,
+          to_name: recipient?.userName || recipientEmail,
+          message: chatInput,
+          to_mail: recipientEmail,
+        };
+
+        // sending email
+        emailjs
+          .send(
+            "gmail",
+            "template_s7yrw49",
+            params,
+            "user_TQwr7VIKtfTBbOESbFKxf"
+          )
+          .then(
+            (result) => {
+              // message sent
+              // console.log("result", result.text);
+            },
+            (error) => {
+              console.error("error", error.text);
+            }
+          );
+      }
+    } catch (error) {
+      // console.log("error", error);
+    }
+
+    // console.log('my dtails', chatInput, user, recipientEmail)
 
     // update the last seen...
     db.collection("users").doc(user.uid).set(
