@@ -19,6 +19,7 @@ import {
   SearchInput,
   SidebarButton,
   FooterContainer,
+  UserListWrapper,
 } from "./Elements";
 import { auth, db } from "../../firebase";
 
@@ -78,9 +79,11 @@ const Sidebar = () => {
       </SidebarButton>
 
       {/* List of chats */}
-      {chatsSnapshot?.docs.map((chat) => (
-        <ChatUserLists key={chat.id} id={chat.id} users={chat.data().users} />
-      ))}
+      <UserListWrapper>
+        {chatsSnapshot?.docs.map((chat) => (
+          <ChatUserLists key={chat.id} id={chat.id} users={chat.data().users} />
+        ))}
+      </UserListWrapper>
 
       <FooterContainer>
         <TextWrapper>© 2021 Developed By SRB</TextWrapper>

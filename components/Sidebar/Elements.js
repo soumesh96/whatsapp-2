@@ -128,8 +128,11 @@ export const SignOutButton = styled(Button)`
 
 export const FooterContainer = styled('div')`
   position: fixed;
-  bottom: 12px;
-  left: 12px;
+  bottom: 0;
+  left: 0;
+  background: white;
+  padding: 10px 16px;
+  width: 100%;
   display: flex;
   align-items: center;
   > button {
@@ -162,4 +165,8 @@ export const ErrorText = styled('p')`
   color: red;
   font-size: 16px;
   font-weight: 500;
+`;
+
+export const UserListWrapper = styled('div')`
+  margin-bottom: 20%;
 `;
