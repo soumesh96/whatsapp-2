@@ -132,7 +132,7 @@ export const FooterContainer = styled('div')`
   left: 0;
   background: white;
   padding: 10px 16px;
-  width: 100%;
+  width: 350px;
   display: flex;
   align-items: center;
   > button {
