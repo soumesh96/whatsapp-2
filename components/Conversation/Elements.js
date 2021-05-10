@@ -72,7 +72,7 @@ export const InputContainer = styled('form')`
   position: sticky;
   bottom: 0;
   background: white;
-  z-index: 100;
+  z-index: 200;
 `;
 
 export const Input = styled('input')`
