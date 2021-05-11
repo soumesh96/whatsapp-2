@@ -69,8 +69,9 @@ export const InputContainer = styled('form')`
   display: flex;
   align-items: center;
   padding: 10px;
-  position: sticky;
+  position: fixed;
   bottom: 0;
+  width: 80%;
   background: white;
   z-index: 200;
 `;
