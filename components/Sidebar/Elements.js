@@ -127,7 +127,7 @@ export const SignOutButton = styled(Button)`
 `;
 
 export const FooterContainer = styled('div')`
-  position: fixed;
+  position: sticky;
   bottom: 0;
   left: 0;
   background: white;
